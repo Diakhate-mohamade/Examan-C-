@@ -1,0 +1,54 @@
+﻿<Page x:Class="WPFModernVerticalMenu.Pages.Home"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPFModernVerticalMenu.Pages"
+      mc:Ignorable="d"
+      Title="Home" Height="499" Width="821">
+    <Border CornerRadius="5" Background="{DynamicResource SecundaryBackgroundColor}">
+        <Grid Margin="0,0,0,-23">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Gestion des Utilisateurs" FontSize="30" Foreground="{DynamicResource PrimaryTextColor}" FontWeight="Bold"
+                       VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,10,0,20"/>
+
+            <StackPanel Grid.Row="1" Margin="20">
+                <Button Content="Charger les utilisateurs" Click="ChargerUtilisateurs_Click" Margin="0,0,0,10"/>
+                <ListBox x:Name="UtilisateursListBox" Height="200" Margin="0,0,0,10" SelectionChanged="UtilisateursListBox_SelectionChanged">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" Margin="5">
+                                <TextBlock Text="{Binding Nom}" Width="100" Margin="5"/>
+                                <TextBlock Text="{Binding Prenom}" Width="100" Margin="5"/>
+                                <TextBlock Text="{Binding Age}" Width="50" Margin="5"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <StackPanel Margin="0,0,0,5">
+                    <Grid Margin="0,0,0,5">
+                        <TextBox x:Name="NomTextBox" Width="200" Margin="0,0,0,5"/>
+                        <TextBlock Text="Nom" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0" Foreground="DarkGray"/>
+                    </Grid>
+                    <Grid Margin="0,0,0,5">
+                        <TextBox x:Name="PrenomTextBox" Width="200" Margin="0,0,0,5"/>
+                        <TextBlock Text="Prénom" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0" Foreground="DarkGray"/>
+                    </Grid>
+                    <Grid Margin="0,0,0,5">
+                        <TextBox x:Name="AgeTextBox" Width="200" Margin="0,0,0,5"/>
+                        <TextBlock Text="Âge" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0" Foreground="DarkGray"/>
+                    </Grid>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Content="Ajouter" Click="AjouterUtilisateur_Click" Width="100" Margin="5"/>
+                    <Button Content="Mettre à jour" Click="MettreAJourUtilisateur_Click" Width="100" Margin="5"/>
+                    <Button Content="Supprimer" Click="SupprimerUtilisateur_Click" Width="100" Margin="5"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Page>
